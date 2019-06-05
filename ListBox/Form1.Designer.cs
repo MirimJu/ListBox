@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lbView = new System.Windows.Forms.ListBox();
-            this.lbl1 = new System.Windows.Forms.Label();
+            this.lblResult = new System.Windows.Forms.Label();
             this.tB1 = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -42,15 +42,16 @@
             this.lbView.Name = "lbView";
             this.lbView.Size = new System.Drawing.Size(235, 184);
             this.lbView.TabIndex = 0;
+            this.lbView.SelectedIndexChanged += new System.EventHandler(this.LbView_SelectedIndexChanged);
             // 
-            // lbl1
+            // lblResult
             // 
-            this.lbl1.AutoSize = true;
-            this.lbl1.Location = new System.Drawing.Point(13, 203);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(29, 12);
-            this.lbl1.TabIndex = 1;
-            this.lbl1.Text = "결과";
+            this.lblResult.AutoSize = true;
+            this.lblResult.Location = new System.Drawing.Point(13, 203);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(37, 12);
+            this.lblResult.TabIndex = 1;
+            this.lblResult.Text = "결과 :";
             // 
             // tB1
             // 
@@ -59,6 +60,7 @@
             this.tB1.Name = "tB1";
             this.tB1.Size = new System.Drawing.Size(232, 14);
             this.tB1.TabIndex = 2;
+            this.tB1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB1_KeyPress);
             // 
             // btnAdd
             // 
@@ -68,7 +70,7 @@
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "추가";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.Button1_Click);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // Form1
             // 
@@ -77,12 +79,13 @@
             this.ClientSize = new System.Drawing.Size(259, 315);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tB1);
-            this.Controls.Add(this.lbl1);
+            this.Controls.Add(this.lblResult);
             this.Controls.Add(this.lbView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "리스트 추가";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,7 +94,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox lbView;
-        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.TextBox tB1;
         private System.Windows.Forms.Button btnAdd;
     }
